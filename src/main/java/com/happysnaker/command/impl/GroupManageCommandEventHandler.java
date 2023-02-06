@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.utils.OfUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @date 2022/7/2
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class GroupManageCommandEventHandler extends DefaultCommandEventHandlerManager {
     @Deprecated
     public static final String ENABLE_AUTO_APPROVE = "开启自动审批";

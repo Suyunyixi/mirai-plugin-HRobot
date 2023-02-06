@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * @email happysnaker@foxmail.com
  * @deprecated 坎公功能在未来可能会被重构或废弃，设置成员的方式可能会有所改变
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 @Deprecated
 public class GtCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static final String addGtMembersCommand = "添加坎公公会成员";

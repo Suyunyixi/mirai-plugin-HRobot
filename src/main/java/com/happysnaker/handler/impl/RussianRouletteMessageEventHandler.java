@@ -2,7 +2,7 @@ package com.happysnaker.handler.impl;
 
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.proxy.Context;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.utils.OfUtil;
 import com.happysnaker.utils.StringUtil;
@@ -18,7 +18,7 @@ import java.util.*;
  * @date 2022/7/9
  * @email happysnaker@foxmail.com
  */
-@handler
+@MessageHandler
 @SuppressWarnings("unchecked")
 public class RussianRouletteMessageEventHandler extends GroupMessageEventHandler {
     public final String reload = "装弹";

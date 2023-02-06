@@ -5,7 +5,7 @@ import com.happysnaker.cron.BilibiliSubscribeCronJob;
 import com.happysnaker.cron.RobotCronJob;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.utils.MapGetter;
 import com.happysnaker.utils.StringUtil;
@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * 订阅命令
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class SubscribeCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static final String SUBSCRIBE_COMMAND = "订阅";
 

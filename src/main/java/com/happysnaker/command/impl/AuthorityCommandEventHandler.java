@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.utils.StringUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @date 2022/2/22
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class AuthorityCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static final String GRANT_ADMIN = "授予管理员权限";
     public static final String GRANT_GT_ADMIN = "授予坎公管理员权限";

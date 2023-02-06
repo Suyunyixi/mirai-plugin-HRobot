@@ -8,6 +8,7 @@ import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
 import com.happysnaker.handler.impl.GroupMessageEventHandler;
 import com.happysnaker.utils.OfUtil;
+import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
 
@@ -15,38 +16,48 @@ import java.util.List;
 
 /**
  * 抽象命令处理类，命令处理者需继承此类，并实现 {@link #success(MessageEvent)} 和 {@link #fail(MessageEvent, Throwable)} 方法
+ *
  * @author Happysnaker
  * @description
  * @date 2022/2/15
  * @email happysnaker@foxmail.com
  */
-public abstract class AbstractCommandEventHandler extends GroupMessageEventHandler implements CommandHandler, CommandHandlerManager {
+@Slf4j
+public abstract class AbstractCommandEventHandler
+        extends GroupMessageEventHandler
+        implements CommandHandler, CommandHandlerManager {
     /**
      * 模板方法模式，命令处理的入口
+     *
      * @param event 经过 proxyContent 处理后的消息
-     * @param ctx
-     * @return
+     * @param ctx   上下文
+     * @return {@link MessageChain}
      */
     @Override
     public List<MessageChain> handleMessageEvent(MessageEvent event, Context ctx) {
         List<MessageChain> ans;
         try {
+            // 解析命令
             ans = parseCommand(event);
         } catch (CanNotParseCommandException e) {
+            // fail callback
             fail(event, e);
             return OfUtil.ofList(buildMessageChain(getQuoteReply(event),
                     "命令解析出错，错误原因：" + e.getMessage()));
         } catch (InsufficientPermissionsException e) {
+            // fail callback
             fail(event, "权限不足：" + e.getMessage());
             return OfUtil.ofList(buildMessageChain(getQuoteReply(event),
                     "对不起，您没有足够的权限，说明：" + e.getMessage()));
         } catch (Exception e) {
             e.printStackTrace();
+            // fail callback
             fail(event, e);
             return OfUtil.ofList(buildMessageChain(getQuoteReply(event),
                     "异常错误，错误原因：" + e.getMessage()));
         }
         if (ans != null) {
+            // success callback
             success(event);
         }
         return ans;
@@ -55,7 +66,7 @@ public abstract class AbstractCommandEventHandler extends GroupMessageEventHandl
     /**
      * 返回去除命令前缀的纯文本消息
      *
-     * @param event
+     * @param event {@link MessageEvent}
      * @return
      */
     @Override

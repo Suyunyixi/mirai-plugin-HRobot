@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.starter.HRobotStarter;
 import com.happysnaker.config.ConfigManager;
@@ -19,7 +19,7 @@ import java.util.List;
  * @date 2022/2/22
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class SystemCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static String reloadConfigCommand = "重载配置";
     public static String saveConfigCommand = "保存配置";

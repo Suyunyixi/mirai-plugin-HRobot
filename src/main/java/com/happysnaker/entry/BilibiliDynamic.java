@@ -1,7 +1,9 @@
 package com.happysnaker.entry;
 
 
-import com.happysnaker.utils.MapGetter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import java.util.Objects;
@@ -9,6 +11,9 @@ import java.util.Objects;
 /**
  * Bilibili 动态更新实体类，动态不单单指 UP 个人中心动态，也可以泛指番剧更新或其他内容更新
  */
+@Data
+@Accessors(chain = true)
+@NoArgsConstructor
 public class BilibiliDynamic {
     /**
      * 更新时间
@@ -60,53 +65,6 @@ public class BilibiliDynamic {
      */
     public List<String> images;
 
-    public BilibiliDynamic setType(int type) {
-        this.type = type;
-        return this;
-    }
-    public BilibiliDynamic() {}
-
-
-    public long getPubTime() {
-        return pubTime;
-    }
-
-    public BilibiliDynamic setPubTime(long pubTime) {
-        this.pubTime = pubTime;
-        return this;
-    }
-
-    public String getAuthName() {
-        return authName;
-    }
-
-    public BilibiliDynamic setAuthName(String authName) {
-        this.authName = authName;
-        return this;
-    }
-
-    public String getFace() {
-        return face;
-    }
-
-    public BilibiliDynamic setFace(String face) {
-        this.face = face;
-        return this;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public BilibiliDynamic setCover(String cover) {
-        this.cover = cover;
-        return this;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
     @Override
     public String toString() {
         return "BilibiliDynamic{" +
@@ -123,33 +81,14 @@ public class BilibiliDynamic {
                 '}';
     }
 
-    public BilibiliDynamic setDesc(String desc) {
-        this.desc = desc;
-        return this;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public BilibiliDynamic setId(String id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getJumpUrl() {
-        return jumpUrl;
-    }
-
-    public BilibiliDynamic setJumpUrl(String jumpUrl) {
-        this.jumpUrl = jumpUrl;
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         BilibiliDynamic that = (BilibiliDynamic) o;
         return id.equals(that.id);
     }
@@ -157,29 +96,5 @@ public class BilibiliDynamic {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    public String getPubAction() {
-        return pubAction;
-    }
-
-    public BilibiliDynamic setPubAction(String pubAction) {
-        this.pubAction = pubAction;
-        return this;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-
-
-    public List<String> getImages() {
-        return images;
-    }
-
-    public BilibiliDynamic setImages(List<String> images) {
-        this.images = images;
-        return this;
     }
 }

@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2022/10/27
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class ColorImageCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static String openSe = "开启涩图";
     public static String closeSe = "关闭涩图";

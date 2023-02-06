@@ -2,7 +2,7 @@ package com.happysnaker.handler.impl;
 
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.proxy.Context;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.utils.StringUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * @date 2022/2/22
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 0)
+@MessageHandler(priority = 0)
 @SuppressWarnings("unchecked")
 public class CustomKeywordMessageEventHandler extends GroupMessageEventHandler {
     public static final String REGEX_PREFIX = "#regex#";

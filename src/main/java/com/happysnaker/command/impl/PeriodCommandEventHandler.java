@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.utils.OfUtil;
 import com.happysnaker.utils.Pair;
@@ -22,7 +22,7 @@ import java.util.List;
  * @date 2022/7/3
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class PeriodCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static final String ADD_PERIOD_TASK = "设置定时任务";
 

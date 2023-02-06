@@ -7,7 +7,7 @@ import com.happysnaker.config.RobotConfig;
 import com.happysnaker.proxy.Context;
 import com.happysnaker.exception.CanNotSendMessageException;
 import com.happysnaker.exception.FileUploadException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.utils.IOUtil;
 import com.happysnaker.utils.StringUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
@@ -26,7 +26,7 @@ import java.util.*;
  * @date 2022/1/20
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1)
+@MessageHandler(priority = 1)
 public class ImageShareMessageEventHandler extends GroupMessageEventHandler {
     public final String chickenSoup = "鸡汤";
     public final String mysteriousImage = "神秘代码";

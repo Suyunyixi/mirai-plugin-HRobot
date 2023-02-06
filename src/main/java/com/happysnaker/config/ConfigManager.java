@@ -74,7 +74,9 @@ public class ConfigManager {
     }
 
     public static String formatLog(MessageEvent event) {
-        if (event == null) return "[" + StringUtil.formatTime() + "]";
+        if (event == null) {
+            return "[" + StringUtil.formatTime() + "]";
+        }
         String content = getContent(event);
         String sender = getSenderId(event);
         if (!(event instanceof GroupMessageEvent)) {

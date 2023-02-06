@@ -4,7 +4,7 @@ import com.happysnaker.api.BaiKeApi;
 import com.happysnaker.proxy.Context;
 import com.happysnaker.exception.CanNotSendMessageException;
 import com.happysnaker.exception.FileUploadException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
 
@@ -20,7 +20,7 @@ import java.util.Map;
  * @date 2022/2/26
  * @email happysnaker@foxmail.com
  */
-@handler
+@MessageHandler
 public class KnowledgeSearchMessageEventHandler extends GroupMessageEventHandler {
     public static final String BAIDU_BAIKE = "百度百科";
 

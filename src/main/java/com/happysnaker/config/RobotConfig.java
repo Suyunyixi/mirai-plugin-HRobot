@@ -48,7 +48,7 @@ public class RobotConfig {
     /**
      * 是否启动机器人，可动态关闭开启，关闭后机器人不在接受任何消息（除了开启消息）
      */
-    public volatile static boolean enableRobot = true;
+    public static volatile boolean enableRobot = true;
 
     // ------------ 用户配置 ----------------
     /**
@@ -119,7 +119,7 @@ public class RobotConfig {
     /**
      * 聊天是否需要 @ 机器人，如果此字段为 false，则任意消息机器人都会回复
      */
-    public volatile static boolean enableAt = true;
+    public static volatile boolean enableAt = true;
 
     /**
      * 自定义回复替代，可以将回复消息内的关键词替换为自定义语句

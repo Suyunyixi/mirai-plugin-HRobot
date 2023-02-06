@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 
-dependencies{
+dependencies {
     implementation("com.alibaba:fastjson:1.2.76")
     implementation(kotlin("stdlib-jdk8"))
     // https://mvnrepository.com/artifact/org.jfree/jfreechart
@@ -28,7 +28,12 @@ dependencies{
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation("org.apache.commons:commons-lang3:3.12.0")
     implementation("org.quartz-scheduler:quartz:2.2.1")
-
+    // lombok
+    implementation("org.projectlombok:lombok:1.18.24")
+    // lombok兼容gradle5+, 避免因编译顺序导致失败
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+    // hutool
+    implementation("cn.hutool:hutool-all:5.8.11")
 }
 
 val compileKotlin: KotlinCompile by tasks

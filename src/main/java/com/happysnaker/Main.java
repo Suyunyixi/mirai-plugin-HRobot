@@ -22,7 +22,7 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         try {
-            HRobotStarter.Start(this);
+            HRobotStarter.start(this);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(500);

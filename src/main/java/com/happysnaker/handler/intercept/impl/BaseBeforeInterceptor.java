@@ -1,7 +1,7 @@
 package com.happysnaker.handler.intercept.impl;
 
 import com.happysnaker.config.RobotConfig;
-import com.happysnaker.handler.intercept.intercept;
+import com.happysnaker.handler.intercept.Intercept;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
 import net.mamoe.mirai.event.events.MessageEvent;
 
@@ -12,7 +12,7 @@ import net.mamoe.mirai.event.events.MessageEvent;
  * @date 2022/1/30
  * @email happysnaker@foxmail.com
  */
-@intercept
+@Intercept
 public class BaseBeforeInterceptor extends AdaptInterceptor {
 
 

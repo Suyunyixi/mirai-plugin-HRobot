@@ -3,7 +3,7 @@ package com.happysnaker.command.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.exception.CanNotParseCommandException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.handler.impl.CustomKeywordMessageEventHandler;
 import com.happysnaker.permission.Permission;
 import com.happysnaker.utils.Pair;
@@ -22,7 +22,7 @@ import java.util.Set;
  * @date 2022/2/24
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1024)
+@MessageHandler(priority = 1024)
 public class CustomKeywordCommandEventHandler extends DefaultCommandEventHandlerManager {
     public static final String SET_KEYWORD = "设置关键字回复";
     public static final String SET_GROUP_KEYWORD = "设置群内关键字回复";

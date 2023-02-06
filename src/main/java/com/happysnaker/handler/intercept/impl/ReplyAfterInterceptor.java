@@ -2,7 +2,7 @@ package com.happysnaker.handler.intercept.impl;
 
 import com.happysnaker.config.ConfigManager;
 import com.happysnaker.config.RobotConfig;
-import com.happysnaker.handler.intercept.intercept;
+import com.happysnaker.handler.intercept.Intercept;
 import com.happysnaker.utils.StringUtil;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
@@ -20,7 +20,7 @@ import java.util.Map;
  * @date 2022/7/2
  * @email happysnaker@foxmail.com
  */
-@intercept(order = 0)
+@Intercept(order = 0)
 public class ReplyAfterInterceptor extends AdaptInterceptor {
 
     @Override

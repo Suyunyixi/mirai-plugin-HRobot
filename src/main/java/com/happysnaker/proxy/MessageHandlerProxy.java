@@ -2,9 +2,9 @@ package com.happysnaker.proxy;
 
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.handler.MessageEventHandler;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.handler.intercept.Interceptor;
-import com.happysnaker.handler.intercept.intercept;
+import com.happysnaker.handler.intercept.Intercept;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.MessageChain;
 import org.reflections.Reflections;
@@ -34,8 +34,8 @@ public class MessageHandlerProxy implements MessageEventHandler {
      */
     public MessageHandlerProxy() throws Exception {
         Reflections reflections = new Reflections("com.happysnaker");
-        Set<Class<?>> handlerCs = reflections.getTypesAnnotatedWith(handler.class);
-        Set<Class<?>> inspectCs = reflections.getTypesAnnotatedWith(intercept.class);
+        Set<Class<?>> handlerCs = reflections.getTypesAnnotatedWith(MessageHandler.class);
+        Set<Class<?>> inspectCs = reflections.getTypesAnnotatedWith(Intercept.class);
 
 
         for (Class<?> c : handlerCs) {
@@ -58,15 +58,15 @@ public class MessageHandlerProxy implements MessageEventHandler {
         }
 
         handlers.sort((h1, h2) -> {
-            handler a1 = h1.getClass().getAnnotation(handler.class);
-            handler a2 = h2.getClass().getAnnotation(handler.class);
+            MessageHandler a1 = h1.getClass().getAnnotation(MessageHandler.class);
+            MessageHandler a2 = h2.getClass().getAnnotation(MessageHandler.class);
             // 按照高 ->低排序
             return a2.priority() - a1.priority();
         });
 
         interceptors.sort((i1, i2) -> {
-            intercept a1 = i1.getClass().getAnnotation(intercept.class);
-            intercept a2 = i2.getClass().getAnnotation(intercept.class);
+            Intercept a1 = i1.getClass().getAnnotation(Intercept.class);
+            Intercept a2 = i2.getClass().getAnnotation(Intercept.class);
             // 按照高 ->低排序
             return a2.order() - a1.order();
         });

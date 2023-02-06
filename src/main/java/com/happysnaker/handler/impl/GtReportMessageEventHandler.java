@@ -3,7 +3,7 @@ package com.happysnaker.handler.impl;
 import com.happysnaker.config.RobotConfig;
 import com.happysnaker.proxy.Context;
 import com.happysnaker.exception.FileUploadException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.utils.*;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.At;
@@ -22,7 +22,7 @@ import java.util.*;
  * @date 2022/1/16
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1)
+@MessageHandler(priority = 1)
 @Deprecated // 代码待重构
 public class GtReportMessageEventHandler extends GroupMessageEventHandler {
     public static final String BATTLE_REPORT = "会战报表";

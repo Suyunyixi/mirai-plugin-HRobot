@@ -21,6 +21,7 @@ public class BilibiliApi {
 
     /**
      * 获取最近更新的番剧
+     *
      * @param sid 番剧 id
      * @return
      * @throws IOException
@@ -30,7 +31,7 @@ public class BilibiliApi {
         MapGetter getter = IOUtil.sendAndGetResponseMapGetter(url, "GET", null, null);
         MapGetter result = getter.getMapGetter("result");
         List<MapGetter> eps = result.getMapGetterList("episodes");
-        eps.sort((a, b)-> Long.compare(b.getLong("pub_time"), a.getLong("pub_time")));
+        eps.sort((a, b) -> Long.compare(b.getLong("pub_time"), a.getLong("pub_time")));
         if (eps.size() == 0) {
             return null;
         }
@@ -48,6 +49,7 @@ public class BilibiliApi {
 
     /**
      * 获取一条最新的动态
+     *
      * @param uid Up id
      * @return
      */
@@ -62,6 +64,7 @@ public class BilibiliApi {
 
     /**
      * 获取最新的几条动态
+     *
      * @param uid Up id
      * @return
      */

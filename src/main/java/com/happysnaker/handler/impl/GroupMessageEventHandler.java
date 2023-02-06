@@ -5,7 +5,7 @@ import com.happysnaker.config.RobotConfig;
 import com.happysnaker.proxy.Context;
 import com.happysnaker.exception.FileUploadException;
 import com.happysnaker.exception.InsufficientPermissionsException;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import com.happysnaker.utils.OfUtil;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.contact.ContactList;
@@ -30,7 +30,7 @@ import java.util.List;
  * @date 2022/1/14
  * @email happysnaker@foxmail.com
  */
-@handler(priority = -1) // 最低的优先级
+@MessageHandler(priority = -1) // 最低的优先级
 public class GroupMessageEventHandler extends AbstractMessageEventHandler {
 
     /**

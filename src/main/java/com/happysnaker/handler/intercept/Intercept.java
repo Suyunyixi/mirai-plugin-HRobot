@@ -5,12 +5,13 @@ import java.lang.annotation.*;
 
 /**
  * 标记该类成为以一个拦截器
+ *
  * @author happysnakers
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface intercept {
+public @interface Intercept {
     /**
      * <p><strong>后置拦截方法的调用顺序，order 越高，则越先调用</strong></p>
      * <p>前置拦截方法是无状态的，无优先级概念</p>

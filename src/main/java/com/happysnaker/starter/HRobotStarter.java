@@ -28,14 +28,14 @@ import java.util.Map;
  * @email happysnaker@foxmail.com
  */
 public class HRobotStarter {
-    private static MessageHandlerProxy messageHandler;
+    private static MessageHandlerProxy MESSAGE_HANDLER;
 
     /**
      * 启动入口
      *
      * @param plugin
      */
-    public static void Start(JavaPlugin plugin) throws Exception {
+    public static void start(JavaPlugin plugin) throws Exception {
         // 打印 banner
         HRobotStartPrinter.printBanner();
 
@@ -53,13 +53,14 @@ public class HRobotStarter {
         loadSensitiveWord();
 
         // 获取消息代理
-        messageHandler = new MessageHandlerProxy();
+        MESSAGE_HANDLER = new MessageHandlerProxy();
 
         // 订阅消息事件
-        EventChannel<Event> instance =  GlobalEventChannel.INSTANCE.parentScope(com.happysnaker.Main.INSTANCE);;
+        EventChannel<Event> instance = GlobalEventChannel.INSTANCE.parentScope(com.happysnaker.Main.INSTANCE);
+
         instance.subscribeAlways(GroupMessageEvent.class, event -> {
-            if (messageHandler.shouldHandle(event, null)) {
-                messageHandler.handleMessageEvent(event, null);
+            if (MESSAGE_HANDLER.shouldHandle(event, null)) {
+                MESSAGE_HANDLER.handleMessageEvent(event, null);
             }
         });
 
@@ -84,7 +85,7 @@ public class HRobotStarter {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    public synchronized static void initRobotConfig(JavaPlugin plugin) throws IllegalAccessException, IOException {
+    public static synchronized void initRobotConfig(JavaPlugin plugin) throws IllegalAccessException, IOException {
         Yaml yaml = new Yaml();
 
         if (plugin != null) {
@@ -109,8 +110,9 @@ public class HRobotStarter {
                 for (Field field : fields) {
                     if (map.containsKey(field.getName())) {
                         try {
-                            if (map.get(field.getName()) != null)
+                            if (map.get(field.getName()) != null) {
                                 field.set(null, map.get(field.getName()));
+                            }
                         } catch (Exception ignored) {
                             // 可能是名字类型不符合，忽略
                         }

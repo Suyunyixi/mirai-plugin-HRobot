@@ -3,7 +3,7 @@ package com.happysnaker.handler.impl;
 import com.happysnaker.api.MiguApi;
 import com.happysnaker.api.TongZhongApi;
 import com.happysnaker.proxy.Context;
-import com.happysnaker.handler.handler;
+import com.happysnaker.handler.MessageHandler;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.data.*;
 
@@ -21,7 +21,7 @@ import java.util.Set;
  * @date 2022/1/29
  * @email happysnaker@foxmail.com
  */
-@handler(priority = 1)
+@MessageHandler(priority = 1)
 public class MusicShareMessageEventHandler extends GroupMessageEventHandler {
     private final Set<String> keywords = new HashSet<>();
     private final String MUSIC_KEYWORD = "音乐";

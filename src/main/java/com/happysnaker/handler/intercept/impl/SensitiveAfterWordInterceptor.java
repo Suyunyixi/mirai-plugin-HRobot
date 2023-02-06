@@ -1,7 +1,7 @@
 package com.happysnaker.handler.intercept.impl;
 
 import com.happysnaker.config.RobotConfig;
-import com.happysnaker.handler.intercept.intercept;
+import com.happysnaker.handler.intercept.Intercept;
 import com.happysnaker.utils.Trie;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
 import net.mamoe.mirai.event.events.MessageEvent;
@@ -17,7 +17,7 @@ import net.mamoe.mirai.message.data.MessageSource;
  * @date 2022/7/2
  * @email happysnaker@foxmail.com
  */
-@intercept
+@Intercept
 public class SensitiveAfterWordInterceptor extends AdaptInterceptor {
     private final Trie trie;
 
